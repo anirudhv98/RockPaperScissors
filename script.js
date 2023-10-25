@@ -31,7 +31,7 @@ function playRound(playerSelection , computerSelection)
 
 function game()
 {
-    for(let i=0;i<5;i++)
+    while(player<5 && computer<5)
     {
         const playerSelection = prompt("Enter your selection : ");
         const computerSelection = getComputerChoice();
