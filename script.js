@@ -1,7 +1,9 @@
+
+
 function getComputerChoice()
 {
-    var array = ["rock","paper","scissor"];
-    var random = Math.floor((Math.random() * 3));
+    let array = ["rock","paper","scissor"];
+    let random = Math.floor((Math.random() * 3));
     return array[random];
 }
 
@@ -24,6 +26,7 @@ function playRound(playerSelection , computerSelection)
     }
 }
 
-const playerSelection = "rock";
+
+const playerSelection = prompt("Enter your selection : ");
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection,computerSelection));
