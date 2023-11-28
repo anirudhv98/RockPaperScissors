@@ -1,55 +1,71 @@
-let player = 0;
-let computer = 0;
+// function getComputerChoice()
+// {
+//     let choice = Math.floor(Math.random() * 3);
+//     if(choice==0)
+//     {
+//         return "rock";
+//     }
+//     else if(choice == 1)
+//     {
+//         return "paper";
+//     }
+//     else
+//     {
+//         return "scissors";
+//     }
+// }
 
-function getComputerChoice()
-{
-    let array = ["rock","paper","scissor"];
-    let random = Math.floor((Math.random() * 3));
-    return array[random];
-}
+// function play(computer, player =  "rock")
+// {
+//     console.log(player);
+//     console.log(computer);
+//     if((computer == "rock" && player == "rock") || (computer == "scissors" && player == "scissors") || (computer == "paper" && player == "paper"))
+//     {
+//         alert("This round is a draw");
+//         return 0;
+//     }
+//     else if ((player == "rock" && computer == "scissors") || 
+//     (player == "scissors" && computer == "paper") || 
+//     (player == "paper" &&  computer == "rock"))
+//     {
+//         alert(`You Won! ${player} beats ${computer}`);
+//         return 1;
+//     }
+//     else 
+//     {
+//         alert(`You Lose! ${computer} beats ${player}`);
+//         return -1;
+//     }
+// }
 
-function playRound(playerSelection , computerSelection)
-{
-    playerSelection = playerSelection.toLowerCase();
-    if((playerSelection=="rock" && computerSelection=="scissor")
-    || (playerSelection=="paper" && computerSelection=="rock") 
-    || (playerSelection=="scissor" && computerSelection=="paper"))
-    {
-        console.log(`You Won! ${playerSelection} beats ${computerSelection}`);
-        player++;
-    }
-    else if(playerSelection==computerSelection)
-    {
-        console.log(`Scores tied, both chose ${playerSelection}`);
-    }
-    else 
-    {
-        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
-        computer++;
-    }
-}
+// let computerScore =0;
+// let playerScore =0;
 
-function game()
-{
-    while(player<5 && computer<5)
-    {
-        const playerSelection = prompt("Enter your selection : ");
-        const computerSelection = getComputerChoice();
-        playRound(playerSelection,computerSelection);
-    }
-}
+// for(let i=0;i<5;i++)
+// {
+//     let computer = getComputerChoice();
+//     let player = prompt("Enter your choice").toLowerCase();
+//     let result = play(computer,player);
+//     if(result==1)
+//     {
+//         playerScore+=1;
+//     }
+//     else if(result == -1)
+//     {
+//         computerScore +=1;
+//     }
+// }
 
 
-game();
-if(player>computer)
-{
-    console.log(`Player won the series. Player has ${player} points and Computer has ${computer} points`);
-}
-else  if(computer>player)
-{
-    console.log(`Computer won the series. Computer has ${computer} points and Player has ${player} points`);
-}
-else 
-{
-    console.log(`Scores are tied. Player and Computer both have ${player} points`);
-}
+// if(computerScore>playerScore)
+// {
+//     alert(`Computer won the series ${computerScore} - ${playerScore}`);
+// }
+// else if(playerScore>computerScore)
+// {
+//     alert(`Player won the series ${playerScore} - ${computerScore}`);
+// }
+// else 
+// {
+//     alert("Series is a draw");
+// }
