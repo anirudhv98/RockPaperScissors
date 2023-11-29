@@ -1,55 +1,90 @@
-let player = 0;
-let computer = 0;
-
-function getComputerChoice()
-{
-    let array = ["rock","paper","scissor"];
-    let random = Math.floor((Math.random() * 3));
-    return array[random];
+function getComputerChoice() {
+  let choice = Math.floor(Math.random() * 3);
+  if (choice == 0) {
+    return "rock";
+  } else if (choice == 1) {
+    return "paper";
+} else {
+    return "scissors";
+}
 }
 
-function playRound(playerSelection , computerSelection)
-{
-    playerSelection = playerSelection.toLowerCase();
-    if((playerSelection=="rock" && computerSelection=="scissor")
-    || (playerSelection=="paper" && computerSelection=="rock") 
-    || (playerSelection=="scissor" && computerSelection=="paper"))
-    {
-        console.log(`You Won! ${playerSelection} beats ${computerSelection}`);
-        player++;
+let scoreboard = document.querySelector(".scoreboard");
+let middle = document.querySelector(".middle");
+let roundResult = document.querySelector(".outer");
+let inner = document.querySelector(".inner");
+function play(computer, player) {
+  console.log(player);
+  console.log(computer);
+  if (
+    (computer == "rock" && player == "rock") ||
+    (computer == "scissors" && player == "scissors") ||
+    (computer == "paper" && player == "paper")
+  ) {
+    roundResult.textContent = `This round is a draw.` ;
+    middle.textContent = `You drew ${player} and computer drew ${computer}`;
+    return 0;
+  } else if (
+    (player == "rock" && computer == "scissors") ||
+    (player == "scissors" && computer == "paper") ||
+    (player == "paper" && computer == "rock")
+  ) {
+    roundResult.textContent = `You Won!`;
+    middle.textContent = `You drew ${player} and computer drew ${computer}`;
+    return 1;
+  } else {
+    roundResult.textContent = `You Lose!`;
+    middle.textContent = `You drew ${player} and computer drew ${computer}`;
+    return -1;
+  }
+}
+
+let playAgain = document.querySelector("#reset");
+playAgain.addEventListener("click", reset);
+let played = false;
+
+function reset() {
+  computerScore = 0;
+  playerScore = 0;
+  scoreboard.textContent = `Player ${playerScore} : Computer ${computerScore}`;
+  played = false;
+  playAgain.style.visibility = played ? "visible" : "hidden";
+  roundResult.textContent = "";
+  inner.textContent="";
+  middle.textContent="";
+}
+
+function round(player) {
+  if (!played) {
+    let computer = getComputerChoice();
+    let result = play(computer, player);
+    if (result == 1) {
+      playerScore += 1;
+    } else if (result == -1) {
+      computerScore += 1;
     }
-    else if(playerSelection==computerSelection)
-    {
-        console.log(`Scores tied, both chose ${playerSelection}`);
+    scoreboard.textContent = `Player ${playerScore} : Computer ${computerScore}`;
+  }
+  if (playerScore == 5 || computerScore == 5) {
+    played = true;
+    if (computerScore > playerScore) {
+      roundResult.textContent = `Computer won the series ${computerScore} - ${playerScore}`;
+    } else if (playerScore > computerScore) {
+      roundResult.textContent = `Player won the series ${playerScore} - ${computerScore}`;
+    } else {
+      roundResult.textContent = "Series is a draw";
     }
-    else 
-    {
-        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
-        computer++;
-    }
+    inner.textContent = "Click on the Button below to play again";
+    playAgain.style.visibility = played ? "visible" : "hidden";
+  }
 }
 
-function game()
-{
-    while(player<5 && computer<5)
-    {
-        const playerSelection = prompt("Enter your selection : ");
-        const computerSelection = getComputerChoice();
-        playRound(playerSelection,computerSelection);
-    }
-}
+let computerScore = 0;
+let playerScore = 0;
+let buttons = document.querySelectorAll(".choice");
 
-
-game();
-if(player>computer)
-{
-    console.log(`Player won the series. Player has ${player} points and Computer has ${computer} points`);
-}
-else  if(computer>player)
-{
-    console.log(`Computer won the series. Computer has ${computer} points and Player has ${player} points`);
-}
-else 
-{
-    console.log(`Scores are tied. Player and Computer both have ${player} points`);
-}
+buttons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    round(button.value);
+  });
+});
