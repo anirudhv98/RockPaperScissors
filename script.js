@@ -10,6 +10,7 @@ function getComputerChoice() {
 }
 
 let scoreboard = document.querySelector(".scoreboard");
+let middle = document.querySelector(".middle");
 let roundResult = document.querySelector(".outer");
 let inner = document.querySelector(".inner");
 function play(computer, player) {
@@ -20,17 +21,20 @@ function play(computer, player) {
     (computer == "scissors" && player == "scissors") ||
     (computer == "paper" && player == "paper")
   ) {
-    roundResult.textContent = "This round is a draw";
+    roundResult.textContent = `This round is a draw.` ;
+    middle.textContent = `You drew ${player} and computer drew ${computer}`;
     return 0;
   } else if (
     (player == "rock" && computer == "scissors") ||
     (player == "scissors" && computer == "paper") ||
     (player == "paper" && computer == "rock")
   ) {
-    roundResult.textContent = `You Won! ${player} beats ${computer}`;
+    roundResult.textContent = `You Won!`;
+    middle.textContent = `You drew ${player} and computer drew ${computer}`;
     return 1;
   } else {
-    roundResult.textContent = `You Lose! ${computer} beats ${player}`;
+    roundResult.textContent = `You Lose!`;
+    middle.textContent = `You drew ${player} and computer drew ${computer}`;
     return -1;
   }
 }
@@ -47,6 +51,7 @@ function reset() {
   playAgain.style.visibility = played ? "visible" : "hidden";
   roundResult.textContent = "";
   inner.textContent="";
+  middle.textContent="";
 }
 
 function round(player) {

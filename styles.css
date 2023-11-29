@@ -1,9 +1,11 @@
-
-
-div 
+body 
 {
-    border: 2px solid red;
+    background-color :cornflowerblue;
+    color: white;
+    font-size: 30px;
 }
+
+
 
 .main-container 
 {
@@ -14,6 +16,31 @@ div
     gap : 100px;
     padding: 100px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+img 
+{
+    width: 40%;
+    height: auto;
+}
+
+button 
+{
+    padding: 0;
+    margin: 0px;
+    background: transparent;
+    border: none;
+    padding: none;
+}
+
+.buttons 
+{
+    display: flex;
+}
+
+.reset
+{
+    width: 20%;
 }
 
 #reset
@@ -27,6 +54,7 @@ div
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
 }
 
 .roundResult 
@@ -35,4 +63,11 @@ div
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+}
+
+.scores 
+{
+    padding: 10px;
+    gap: 10px;
 }

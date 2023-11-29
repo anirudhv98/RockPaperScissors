@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock, Paper & Scissors</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css" />
     <script src="./script.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main-container">
-        <div class="header">
-            <h1>ROCK, PAPER & SCISSORS</h1>
+      <div class="header">
+        <h1>ROCK, PAPER & SCISSORS</h1>
+      </div>
+      <div class="buttons">
+        <button class="choice" id="rock" value="rock">
+          <img src="./images/rock.png" alt="Rock" />
+        </button>
+        <button class="choice" id="paper" value="paper">
+          <img src="./images/paper.png" alt="Paper" />
+        </button>
+        <button class="choice" id="scissors" value="scissors">
+          <img src="./images/scissors.png" alt="Scissors" />
+        </button>
+      </div>
+      <div class="scores">
+        <div class="scoreboard">Player 0 : Computer 0</div>
+        <div class="roundResult">
+          <div class="outer"></div>
+          <div class="middle"></div>
+          <div class="inner"></div>
         </div>
-        <div class="buttons">
-            <button class = "choice" id = "rock" value = "rock">Rock</button>
-            <button class = "choice" id = "paper" value = "paper">Paper</button>
-            <button class = "choice" id = "scissors" value = "scissors">Scissors</button>
-        </div>
-        <div class="scores">
-            <div class="scoreboard">
-                Player 0 : Computer 0
-            </div>
-            <div class="roundResult">
-                <div class="outer">
-
-                </div>
-                <div class="inner">
-
-                </div>
-            </div>
-        </div>
-        <div class="reset">
-            <button id = "reset">Play Again!</button>
-        </div>
+      </div>
+      <div class="reset">
+        <button id="reset"><img src="./images/playAgain.png" alt="Play Again"></button>
+      </div>
     </div>
-    
-</body>
+  </body>
 </html>
